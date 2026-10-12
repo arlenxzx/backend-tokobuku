@@ -13,11 +13,10 @@ class LogActivity extends Model
 
     protected $fillable = [
         'user_id',
-        'table',
+        'table_name',
         'action',
     ];
 
-    // Relasi: Log dicatat dari aksi 1 User
     public function user()
     {
         return $this->belongsTo(User::class);
