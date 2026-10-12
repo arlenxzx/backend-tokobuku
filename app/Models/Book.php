@@ -10,6 +10,7 @@ class Book extends Model
     use HasFactory;
 
     protected $fillable = [
+        'seller_id',
         'category_id',
         'title',
         'author',
@@ -19,6 +20,13 @@ class Book extends Model
         'cover_img',
     ];
 
+    // Relasi: Buku dimiliki oleh 1 Seller (Toko)
+    public function seller()
+    {
+        return $this->belongsTo(Seller::class);
+    }
+
+    // Relasi: Buku masuk ke 1 Kategori
     public function category()
     {
         return $this->belongsTo(Category::class);
